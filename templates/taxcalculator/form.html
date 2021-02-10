@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<h1>Welcome to Tax Calculator</h1>
+	<form action="" method="post">
+		{% csrf_token %}
+	<table border="1px" cellspacing="0">
+		<tr><td><label>Assesssment Year</label></td>
+			<td><select name='year'>
+	{% for data in year %}
+		<option value="select" hidden="">Select</option>
+		<option value="{{data}}" {% if ty == data  %} selected="selected" {% endif %}>{{data}}</option>
+	{% endfor %}
+		</td></tr></select><br><br>
+		<tr><td><label>Tax Payer</label></td>
+			<td><select name='taxpayer'>
+	{% for data in taxpayer %}
+		<option value="select" hidden="">Select</option>
+		<option value="{{data}}" {% if tp == data %} selected="selected" {% endif %}>{{data}}</option>
+
+
+	{% endfor %}
+	</select>
+	</td></tr>
+
+	<tr><td><label>Category</label></td>
+			<td><select name='category'>
+	{% for data in category %}
+		<option value="select" hidden="">Select</option>
+		<option value="{{data}}" {% if cat == data %} selected="selected" {% endif %}>{{data}}</option>
+
+
+	{% endfor %}
+	</select>
+	</td></tr>
+
+	<tr><td><label>Residential Status</label></td>
+			<td><select name='status'>
+	{% for data in status %}
+		<option value="select" hidden="">Select</option>
+		<option value="{{data}}" {% if stat == data %} selected="selected" {% endif %}>{{data}}</option>
+
+
+	{% endfor %}
+	</select>
+	</td></tr>
+
+	<tr><td><label>Income from salary</label></td>
+			<td><input type="text" name="income" placeholder="Enter Annual Salary" value="{{annincome}}">
+	</td></tr>
+
+	<tr><td><input type="submit" name="txtsub" value="Submit"></td>
+	<td><input type="submit" name="txtclear" value="Clear"></td></tr>
+
+
+	</table><br>
+	{{x}}<br>
+	{{y}}<br>
+	{{z}}<br>
+	{{a}}<br>
+	{{d}}<br>
+	{{b}}<br>
+
+	<span style="color: green">{{c}}</span><br>
+	<span style="color: red" >{{amtpay}}</span>
+</body>
+</html>
